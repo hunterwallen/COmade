@@ -4,7 +4,7 @@ const Item = require('../models/products.js')
 const seed = require('../models/seed.js')
 
 const isAuthenticated = (req, res, next) => {
-  if(currentUser) {
+  if(req.session.currentUser) {
     next()
   } else {
     res.redirect('/sessions/new')
