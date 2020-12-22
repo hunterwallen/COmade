@@ -39,13 +39,13 @@ router.get('/seed', (req, res) => {
   })
 })
 
-router.get('/new', (req, res) => {
+router.get('/new', isAuthenticated, (req, res) => {
   res.render('new.ejs', {
     currentUser: req.session.currentUser
   })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', isAuthenticated, (req, res) => {
   Item.findById(req.params.id, (error, foundProduct) => {
     let inStock = false
     if(foundProduct.qty > 0) {
@@ -59,7 +59,7 @@ router.get('/:id', (req, res) => {
   })
 })
 
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', isAuthenticated, (req, res) => {
   Item.findById(req.params.id, (error, foundProduct) => {
     res.render('edit.ejs', {
       product: foundProduct,
