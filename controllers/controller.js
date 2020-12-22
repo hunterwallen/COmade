@@ -94,7 +94,7 @@ router.put('/:id', (req, res) => {
 }
 })
 
-router.put('/:qty/:id', (req, res) => {
+router.put('/:qty/:id', isAuthenticated, (req, res) => {
   let newInventory = req.params.qty - 1
   Item.findByIdAndUpdate(req.params.id, {$set: {qty: newInventory}}, {new: true}, (error, updatedProduct) => {
     res.redirect(`/store/${req.params.id}`)
