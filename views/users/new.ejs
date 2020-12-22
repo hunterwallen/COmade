@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%-include('../partials/head.ejs')%>
+  <body>
+  <%-include('../partials/header.ejs')%>
+  <%-include('../partials/nav.ejs')%>
+
+  <div class="authenticationDiv">
+    <form class="authenticationForm" action="/users/" method="POST">
+      <input type="text" name="username" placeholder="username">
+      <input type="password" name="password" placeholder="password">
+      <input type="submit" value="Create An Account" class='submitUser'>
+    </form>
+  </div>
+  <div class="authenticationPush"></div>
+  <div class="extraPush"></div>
+  <div class="push"></div>
+  <%-include('../partials/footer.ejs')%>
+  </body>
+  </html>

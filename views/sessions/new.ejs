@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%-include('../partials/head.ejs')%>
+  <body>
+  <%-include('../partials/header.ejs')%>
+  <%-include('../partials/nav.ejs')%>
+  <% if(error) {%>
+  <h3 class='errorLogin'>
+    <%if(error === 'db') {%>
+      There was a problem with the Database. Please try again.
+    <%} else if (error === 'username') {%>
+      Username not found. Please try again.
+    <%} else {%>
+      Password doesn't match. Please try again.
+    <%}%>
+  </h3>
+  <%}%>
+
+  <div class="authenticationDiv">
+    <form class="authenticationForm" action="/sessions/" method="POST">
+      <input type="text" name="username" placeholder="username">
+      <input type="password" name="password" placeholder="password">
+      <input type="submit" value="Login" class='submitUser'>
+    </form>
+  </div>
+  <div class="authenticationPush"></div>
+  <div class="extraPush"></div>
+  <div class="push"></div>
+  <%-include('../partials/footer.ejs')%>
+  </body>
+  </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%-include('./partials/head.ejs')%>
+  <body>
+  <%-include('./partials/header.ejs')%>
+  <%-include('./partials/homeButton.ejs')%>
+
+  <div class="errorDiv">
+    <h3>Oops, there seems to be something wrong with the data you gave me. Please try your post again. Please refer to the list below for help in what may have happened. If your issue persists, please contact customer support.</h3>
+    <h4>Post Requirements:</h4>
+    <ul>
+      <li>Valid image URL</li>
+      <li>Unique Product Name</li>
+      <li>Price of no less than $0, given in numbers only</li>
+      <li>Inventory Quantity of no less than 0 given in numbers only</li>
+    </ul>
+  </div>
+  <div class="extraPush"></div>
+  <div class="push"></div>
+  <%-include('./partials/footer.ejs')%>
+  </body>
+  </html>

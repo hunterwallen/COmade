@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%-include('./partials/head.ejs')%>
+  <body>
+  <%-include('./partials/header.ejs')%>
+  <%-include('./partials/nav.ejs')%>
+
+  <div class="showBody">
+    <div class="productShowCard">
+      <img src="<%=product.img%>" alt="<%=product.name%>" class='showImg'>
+      <div class="showText">
+        <div class="dataBar">
+          <div class="dataTop">
+            <h3><%=product.name%></h3>
+            <p><%=product.description%></p>
+            <% if(inStock){ %>
+              <h5>Hurry, there's only <em><%=product.qty%></em> left in stock!</h5>
+            <%} else {%>
+              <h5>This Item Is Currently Out Of Stock</h5>
+              <%}%>
+          </div>
+          <div class="dataBottom">
+            <h3>$<%=product.price%></h3>
+            <% if(inStock){%>
+            <form class="buyButton" action="/store/<%=product.qty%>/<%=product.id%>?_method=PUT" method="POST">
+              <input type="submit" value="BUY NOW"/>
+            </form>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="editDeleteButtonDiv">
+      <a href="/store/<%=product.id%>/edit" id='editBtn'>EDIT PRODUCT</a>
+      <form id="deleteButton" action="/store/<%=product.id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE POSTING"/>
+      </form>
+    </div>
+  </div>
+  <div class="push"></div>
+  <%-include('./partials/footer.ejs')%>
+  </body>
+ </html>

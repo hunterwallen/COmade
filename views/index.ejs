@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%-include('./partials/head.ejs')%>
+  <body>
+  <%-include('./partials/header.ejs')%>
+  <%-include('./partials/nav.ejs')%>
+  <div class="indexBody">
+    <div class='productIndex'>
+      <% for(i in products) { %>
+        <a href="/store/<%=products[i].id%>" class='productsCard'>
+            <img src="<%=products[i].img%>" alt="<%=products[i].name%>" class='indexImg'>
+            <div class="namePriceBar">
+              <div class="namePriceTop">
+                <h5><%=products[i].name%></h5>
+                <h5>$<%=products[i].price%></h5>
+                </form>
+              </div>
+              <div class="namePriceBtm">
+              <% if (products[i].qty > 0) {%>
+                <form class="buyButton" action="/store/<%=products[i].qty%>/<%=products[i].id%>?_method=PUT" method="POST">
+                  <input type="submit" value="BUY NOW"/>
+                </form>
+                <%} else {%>
+                  <h5 class='outOfStockIndex'>Out Of Stock</h5>
+                  <%}%>
+              </div>
+            </div>
+        </a>
+      <%}%>
+    </div>
+    <div class="extraPush"></div>
+    <div class="push"></div>
+  </div>
+  <%-include('./partials/footer.ejs')%>
+  </body>
+</html>

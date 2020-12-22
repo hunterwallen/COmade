@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%-include('./partials/head.ejs')%>
+  <body>
+  <%-include('./partials/header.ejs')%>
+  <%-include('./partials/nav.ejs')%>
+
+  <div class="editBody">
+    <h1>Edit Product Information</h1>
+    <div class="productEditCard">
+      <form class="editForm" action="/store/<%=product.id%>?_method=PUT" method="POST">
+        <h3 for='productImage'>Image Source</h3>
+        <input type="text" name="img" id='productImage' value="<%=product.img%>"/>
+        <h3 for='productName'>Name</h3>
+        <input type="text" name="name" id='productName' value="<%=product.name%>"/>
+        <h3 for='productDesc'>Description</h3>
+        <textarea name="description" id='productDesc'><%=product.description%></textarea>
+        <h3 for='productPrice'>Price (in $)</h3>
+        <input type="text" name="price" id='productPrice' value="<%=product.price%>"/>
+        <h3 for='productStock'>Quantity In Stock</h3>
+        <input type="text" name="qty" id='productStock' value="<%=product.qty%>"/><br/>
+        <input type="submit" id='editSubmit' value="Edit Posting">
+      </form>
+    </div>
+  </div>
+  <div class="extraPush"></div>
+  <div class="push"></div>
+  <%-include('./partials/footer.ejs')%>
+  </body>
+  </html>

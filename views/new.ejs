@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%-include('./partials/head.ejs')%>
+  <body>
+  <%-include('./partials/header.ejs')%>
+  <%-include('./partials/nav.ejs')%>
+
+  <div class="newBody">
+    <h1>Add New Product:</h1>
+    <div class="productNewCard">
+      <form class="newForm" action="/store" method="POST">
+        <h3 for='productImage'>Image Source</h3>
+        <input type="text" name="img" id='productImage' placeholder="Enter Link To Product Photo"/>
+        <h3 for='productName'>Name</h3>
+        <input type="text" name="name" id='productName' placeholder="Enter Product Name"/>
+        <h3 for='productDesc'>Description</h3>
+        <input type="text" name="description" id='productDesc' placeholder="Enter Description"/>
+        <h3 for='productPrice'>Price</h3>
+        <input type="text" name="price" id='productPrice' placeholder="Enter a Number"/>
+        <h3 for='productStock'>Quantity In Stock</h3>
+        <input type="text" name="qty" id='productStock' placeholder="Enter a Number"/>
+        <input type="submit" id='newSubmit' value="Add New Item">
+      </form>
+    </div>
+  </div>
+  <div class="extraPush"></div>
+  <div class="push"></div>
+  <%-include('./partials/footer.ejs')%>
+  </body>
+  </html>
