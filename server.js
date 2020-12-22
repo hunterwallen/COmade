@@ -9,7 +9,7 @@ const sessionsController = require('./controllers/sessions.js')
 
 require('dotenv').config()
 const PORT = process.env.PORT
-const mongodbURI = process.env.MONGODBURI
+const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection
 
 
@@ -35,7 +35,7 @@ app.listen(PORT, () => {
 
 
 mongoose.connect(
-    mongodbURI,
+    MONGODB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
