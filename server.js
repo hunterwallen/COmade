@@ -48,4 +48,4 @@ mongoose.connect(
 
 
 const productController = require('./controllers/controller.js')
-app.use('/store', productController)
+app.use('/', productController)
